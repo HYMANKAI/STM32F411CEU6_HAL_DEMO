@@ -10,24 +10,18 @@
 #include "ICM20602.h"
 #include "TIMER.h"
 
-short AD_Value;
-float Temperature;
-float Vol_Value;
-
 int main(void)
 {   
     HAL_Init();
     
     SystemClock_Config();
     SYSTICK_init(100);
-    
-//	SCB->VTOR = FLASH_BASE | 0x4000; // Ìí¼ÓÖÁ¹¤³Ì¿ªÍ·Ê±ÖÓ³õÊ¼»¯Ö®ºó
-    
+        
     MX_GPIO_Init();
     MX_I2C1_Init();
     MX_SPI1_Init();
     MX_SPI2_Init();
-    MX_USART1_INIT(115200);					//³õÊ¼»¯´®¿Ú
+    MX_USART1_INIT(115200);					//åˆå§‹åŒ–ä¸²å£
     // MX_TIM1_Init();
     
     while (true)
@@ -36,18 +30,18 @@ int main(void)
         HAL_Delay(500);
     }
 }
-//¶¨Ê±Æ÷1ÖÐ¶Ï·þÎñº¯Êý
+//å®šæ—¶å™¨1ä¸­æ–­æœåŠ¡å‡½æ•°
 void TIM1_UP_TIM10_IRQHandler(void)
 {
     HAL_TIM_IRQHandler(&htim1);
 }
 
 
-//»Øµ÷º¯Êý£¬¶¨Ê±Æ÷ÖÐ¶Ï·þÎñº¯Êýµ÷ÓÃ
+//å›žè°ƒå‡½æ•°ï¼Œå®šæ—¶å™¨ä¸­æ–­æœåŠ¡å‡½æ•°è°ƒç”¨
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
     if(htim==(&htim1))
     {
-        LED_RVS();        //LED1·´×ª
+        LED_RVS();        //LED1åè½¬
     }
 }

@@ -12,3 +12,7 @@ STM32F411CEU6基于HAL库的测试DEMO
 硬件IIC: SSD1306, 0.96寸（12832）OLED
 
 板载例程，LED控制，按键输入，高级定时器1
+
+
+## 目录结构
+![](https://github.com/HYMANKAI/STM32F411CEU6_HAL_DEMO/blob/main/%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84.png)
